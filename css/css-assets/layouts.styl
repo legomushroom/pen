@@ -1,0 +1,50 @@
+// LAYOUTS
+@import '../assets/imports.styl'
+
+/* dd04606902318dfad515e02a3c14ffac */
+.header-l
+	background c-red
+	height 10*gs
+	padding 1.5*gs 2*gs
+	position fixed
+	nw 0
+	width 100%
+
+	.main-logo-b
+		color c-bg
+		margin-top - .5*gs
+
+	.round-icon-b
+		float right
+		+ .round-icon-b
+			margin-right 2*gs
+
+/* feb03c3fd9a570d91898fa4168083412 */
+.side-icons-l
+	display inline-block
+	.timer-b
+		margin-bottom 4*gs
+	.icon
+		margin 0 auto
+		+ .icon
+			margin-top 2*gs
+
+/* feb03c3fd9a570d91898fa4168083412 */
+.recipes-l
+	.recipe-b
+		& + .recipe-b
+			// 4!
+			&:after
+				content ''
+				width 100%
+				height 2*gs
+				top - gs
+				position: absolute
+
+				background-image: -webkit-repeating-radial-gradient(center center, c-red, c-red (1px), transparent (1px), transparent 100%);
+				background-image: -moz-repeating-radial-gradient(center center, c-red, c-red (1px), transparent (1px), transparent 100%);
+				background-image: -ms-repeating-radial-gradient(center center, c-red, c-red (1px), transparent (1px), transparent 100%);
+				background-image: repeating-radial-gradient(center center, c-red, c-red (1px), transparent (1px), transparent 100%);
+				-webkit-background-size: gs gs
+				-moz-background-size: gs gs
+				background-size: gs gs

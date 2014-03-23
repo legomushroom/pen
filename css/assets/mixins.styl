@@ -1,0 +1,93 @@
+gs = 8px
+br = 3px
+
+PX = (1/16)em
+sec = 1s
+
+random(a,b)
+	return math(math(0, 'random')*(b - a + 1) + a, 'floor')
+
+center-shift(size)
+	margin-top:  -(size/2)
+	margin-left: -(size/2)
+	position absolute
+	left 50%
+	top 50%
+
+
+retina(path, size= 100%, color= white)
+	background color url(path+'.png') no-repeat center center
+	background-size size
+	@media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi)
+		background color url(path+'-@2x.png') no-repeat center center
+		background-size size
+
+
+t(position)
+	top position
+
+b(position)
+	bottom position	
+
+l(position)
+	left position
+
+r(position)
+	right position
+
+nw(position=0)
+	t 	position
+	l 	position
+ne(position=0)
+	t 	position 
+	r 	position
+sw(position=0)
+	b 	position
+	l 	position
+se(position=0)
+	b 	position
+	r 	position
+
+
+bbox()
+	box-sizing: border-box;
+
+cbox()
+	box-sizing: content-box;
+
+rect(size)
+	width size
+	height size
+
+circle(size)
+	rect size
+	border-radius 50%
+
+min-rect(size)
+	min-width size
+	min-height size
+
+hl(color, size=1px)
+	outline size solid color
+
+textel()
+	white-space: nowrap
+	text-overflow: ellipsis
+	overflow:hidden
+
+placeholder-mixin(colorArg = c-grey3 )
+	&::-webkit-input-placeholder { /* WebKit browsers */
+		    color: colorArg
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	    color: colorArg
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+	    color: colorArg
+	}
+	&:-ms-input-placeholder { /* Internet Explorer 10+ */
+	    color: colorArg
+	}
+
+II = !important
+
