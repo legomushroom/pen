@@ -17,7 +17,7 @@ class Main
     @writeLoading()
     @interval = setInterval =>
       @writeLoading()
-    , 10000
+    , 11000
 
   writeLoading:->
     @dotPath.setAttribute 'stroke-dashoffset',  @dotLength
@@ -25,31 +25,32 @@ class Main
     it = @
     duration = 6000
     repeat   = 9999999
-    @tween = new TWEEN.Tween({ 
-        length: 0
-        offset: @dashOffset
-        proc: 1
-      }).to({ 
-        length: @pathLength
-        offset: 0
-        proc:  8
-      }, duration)
-      .easing(TWEEN.Easing.Sinusoidal.InOut)
-      .onUpdate(->
-        point     = it.path.getPointAtLength(@length)
-        angle = Math.abs Math.sin(@proc)*20
-        angle = - angle
-        attr = "translate(#{point.x},#{point.y}) rotate(#{angle})"
-        it.pen.setAttribute 'transform', attr
-        it.path.setAttribute 'stroke-dashoffset', @offset
-      )
+    @tween = new TWEEN.Tween({
+      length: 0
+      offset: @dashOffset
+      proc: 1
+    }).to({
+      length: @pathLength
+      offset: 0
+      proc:  8
+    }, duration)
+    .easing(TWEEN.Easing.Sinusoidal.InOut)
+    .onUpdate(->
+      point     = it.path.getPointAtLength(@length)
+      angle = Math.abs Math.sin(@proc)*20
+      angle = - angle
+      attr = "translate(#{point.x},#{point.y}) rotate(#{angle})"
+      it.pen.setAttribute 'transform', attr
+      it.path.setAttribute 'stroke-dashoffset', @offset
+    )
 
     duration = 400
     @moveDownTween = new TWEEN.Tween({ x: 954, y: 510, angle: -20 })
       .to({ x: 900, y: 600, angle: 0 }, duration)
       .easing(TWEEN.Easing.Sinusoidal.Out)
       .onUpdate(->
-        it.pen.setAttribute 'transform', "translate(#{@x},#{@y}) rotate(#{@angle})"
+        attr = "translate(#{@x},#{@y}) rotate(#{@angle})"
+        it.pen.setAttribute 'transform', attr
       )
     
     duration = 600

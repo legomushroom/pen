@@ -25,7 +25,7 @@
         return function() {
           return _this.writeLoading();
         };
-      })(this), 10000);
+      })(this), 11000);
     };
 
     Main.prototype.writeLoading = function() {
@@ -62,7 +62,9 @@
         y: 600,
         angle: 0
       }, duration).easing(TWEEN.Easing.Sinusoidal.Out).onUpdate(function() {
-        return it.pen.setAttribute('transform', "translate(" + this.x + "," + this.y + ") rotate(" + this.angle + ")");
+        var attr;
+        attr = "translate(" + this.x + "," + this.y + ") rotate(" + this.angle + ")";
+        return it.pen.setAttribute('transform', attr);
       });
       duration = 600;
       this.moveUpTween = new TWEEN.Tween({
