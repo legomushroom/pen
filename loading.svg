@@ -2,7 +2,7 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1280 900" enable-background="new 0 0 1280 900" xml:space="preserve">
 
-<path id="js-path" fill="none" stroke="#2C202D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2900" stroke-dashoffset="2900" d="
+<path class="line" id="js-path" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2900" stroke-dashoffset="2900" d="
 	M113.388,508.086c44.937-33.438,84.122-76.28,110.205-126.062c6.46-12.331,11.415-25.392,15.822-38.576
 	c5.578-16.688,10.2-34.019,11.505-51.619c0.941-12.708-0.064-28.511-11.478-36.512c-2.518-1.765-5.155-3.097-8.055-1.783
 	c-4.08,1.849-7.568,5.309-10.191,8.864c-6.11,8.28-9.368,18.325-11.591,28.268c-10.652,47.637,5.777,95.569,40.166,129.542
@@ -57,7 +57,7 @@
 			c-2.281-36.35-4.472-72.753-5.373-109.167c2.014-23.458,0.583-46.993,0.66-70.486C-3.139,153.918-2.862,108.704-4.075,63.541z"/>
 	</g>
 </g>
-<path id="js-dot" fill="none" stroke="#2C202D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="112" stroke-dashoffset="112" d="
+<path class="line" id="js-dot" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="112" stroke-dashoffset="112" d="
 	M781.833,305.834c0,0,13.098-5.758,16.367-3.302c3.43,2.576,2.246,9.616-0.881,11.772c-5.18,3.571-21.844,1.056-21.63-6.78
 	c0.133-4.903,6.916-10.157,9.923-7.066c2.545,2.616,0.284,7.447,0.15,11.132c-9.715,2.688-11.521-18.773-11.264-24.424"/>
 </svg>

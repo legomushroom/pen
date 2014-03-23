@@ -20,31 +20,49 @@
     };
 
     Main.prototype.launchAnimation = function() {
+      this.writeLoading();
+      return this.interval = setInterval((function(_this) {
+        return function() {
+          return _this.writeLoading();
+        };
+      })(this), 10000);
+    };
+
+    Main.prototype.writeLoading = function() {
       var duration, it, repeat;
+      this.dotPath.setAttribute('stroke-dashoffset', this.dotLength);
+      this.path.setAttribute('stroke-dashoffset', this.pathLength);
       it = this;
       duration = 6000;
       repeat = 9999999;
       this.tween = new TWEEN.Tween({
         length: 0,
-        offset: this.dashOffset
+        offset: this.dashOffset,
+        proc: 1
       }).to({
         length: this.pathLength,
-        offset: 0
+        offset: 0,
+        proc: 8
       }, duration).easing(TWEEN.Easing.Sinusoidal.InOut).onUpdate(function() {
-        var point;
+        var angle, attr, point;
         point = it.path.getPointAtLength(this.length);
-        it.pen.setAttribute('transform', "translate(" + point.x + "," + point.y + ")");
+        angle = Math.abs(Math.sin(this.proc) * 20);
+        angle = -angle;
+        attr = "translate(" + point.x + "," + point.y + ") rotate(" + angle + ")";
+        it.pen.setAttribute('transform', attr);
         return it.path.setAttribute('stroke-dashoffset', this.offset);
       });
-      duration = 500;
+      duration = 400;
       this.moveDownTween = new TWEEN.Tween({
         x: 954,
-        y: 510
+        y: 510,
+        angle: -20
       }).to({
         x: 900,
-        y: 600
+        y: 600,
+        angle: 0
       }, duration).easing(TWEEN.Easing.Sinusoidal.Out).onUpdate(function() {
-        return it.pen.setAttribute('transform', "translate(" + this.x + "," + this.y + ")");
+        return it.pen.setAttribute('transform', "translate(" + this.x + "," + this.y + ") rotate(" + this.angle + ")");
       });
       duration = 600;
       this.moveUpTween = new TWEEN.Tween({
